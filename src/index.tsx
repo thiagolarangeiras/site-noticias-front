@@ -3,14 +3,18 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import ListaNoticias from "./screens/ListaNoticias";
-import ShopList from "./screens/ShopList";
+import Noticia from "./screens/Noticia";
 import './index.css'
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <ListaNoticias />,
+        element: <ListaNoticias />   
     },
+    {
+        path: "/noticia/:id",
+        element: <Noticia />
+    }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
