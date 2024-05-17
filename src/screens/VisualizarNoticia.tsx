@@ -1,8 +1,9 @@
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-import { ComentarioList } from '../components/Comentario';
-import { getComentarios, getNoticias } from "../requests"
+import { ComentarioList } from "../components/Comentario";
+import CriarComentario from "./CriarComentario";
+import { getComentarios, getNoticias, deleteNoticia } from "../requests"
 
 export type Comentario = {
     id: number;
@@ -37,6 +38,9 @@ export default function VisualizarNoticia() {
     
     return (
         <div className="border p-3 mb-3 d-flex flex-row justify-content-between">
+             <button type="button" onClick={() => { deleteNoticia(Number(id)); }}>
+                Deletar
+            </button>
             <div className="m-2">
                 <h1>{id}</h1>
                 <h1>{dados?.titulo}</h1>
@@ -44,7 +48,8 @@ export default function VisualizarNoticia() {
                 <h3>{dados?.texto}</h3>
                 <h3>{dados?.data}</h3>
             </div>
-            <ComentarioList comentarios={comentarios} />
+            <CriarComentario idNoticia={id} />
+            <ComentarioList idNoticia={Number(id)} comentarios={comentarios} />
         </div>
     );
 }

@@ -14,25 +14,25 @@
 
 const url = "http://localhost:8080";
 
-type noticiaDtoPost = {
+export type noticiaDtoPost = {
     autor: string;
     titulo: string;
     texto: string;
 };
 
-type noticiaDtoPut = {
+export type noticiaDtoPut = {
     autor: string;
     titulo: string;
     texto: string;
     data: string; 
 };
 
-type comentarioDtoPost = {
+export type comentarioDtoPost = {
     usuario: string;
     texto: string
 };
 
-type comentarioDtoPut = {
+export type comentarioDtoPut = {
     texto: string;
 };
 
